@@ -8,7 +8,7 @@ namespace oop_part3
 {
     public class LinkedList
     {
-        public Node Head { get; set; } 
+        protected Node Head;
 
         public LinkedList(Node head)
         {
@@ -16,6 +16,7 @@ namespace oop_part3
         }
 
         public bool isEmpty() { return Head == null; }  
+
         public void Append(int input_number)
         {
             if(isEmpty()) 
@@ -25,7 +26,10 @@ namespace oop_part3
 
             Node p = Head;
 
-            while (p.Next != null) { p = p.Next; }
+            while (p.Next != null) 
+            {
+                p = p.Next;
+            }
 
             p.Next = new Node(input_number);
         }
@@ -148,6 +152,31 @@ namespace oop_part3
                 p = p.Next;
             }
             return Head;
+        }
+
+        public Node GetMaxNode()
+        {
+            Node max = Head;
+            Node p = Head;  
+            while (p != null) 
+            {
+                if (p.Value > max.Value)  
+                    max = p;
+                p = p.Next;
+            }
+            return max; 
+        }
+        public Node GetMinNode()
+        {
+            Node min = Head;
+            Node p = Head;
+            while (p != null)
+            {
+                if (p.Value < min.Value)
+                    min = p;
+                p = p.Next;
+            }
+            return min;
         }
 
         public override string ToString()
