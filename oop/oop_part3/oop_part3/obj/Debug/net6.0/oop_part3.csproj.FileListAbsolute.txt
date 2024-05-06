@@ -1,0 +1,14 @@
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\bin\Debug\net6.0\oop_part3.exe
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\bin\Debug\net6.0\oop_part3.deps.json
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\bin\Debug\net6.0\oop_part3.runtimeconfig.json
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\bin\Debug\net6.0\oop_part3.dll
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\bin\Debug\net6.0\oop_part3.pdb
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.AssemblyInfoInputs.cache
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.AssemblyInfo.cs
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.csproj.CoreCompileInputs.cache
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.dll
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\refint\oop_part3.dll
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.pdb
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\oop_part3.genruntimeconfig.cache
+C:\Users\liafa\tasks\MamasHomeExc\oop\oop_part3\oop_part3\obj\Debug\net6.0\ref\oop_part3.dll
