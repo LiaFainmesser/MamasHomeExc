@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import math
+from math import sqrt
 
 
 def get_numbers_from_user() -> list[float]:
@@ -41,19 +41,28 @@ def show_graph(numbers: list[float]):
 
 def calc_pearson_correlation(numbers: list[float]) -> float:
     n = len(numbers)
-    x_sum = 0
-    y_sum = 0
-    xy_sum = 0
+    x_avg = 0
+    for x in range(1, n + 1):
+        x_avg += x
+    x_avg = x_avg / n
+    y_avg = get_avg(numbers)
 
-    for numbers_index in range(0, len(numbers)):
-        x_sum += numbers_index
-        y_sum += numbers[numbers_index]
-        xy_sum += numbers_index * numbers[numbers_index]
+    deviation_multiply_sum = 0
 
-    mean_x = x_sum / n
-    mean_y = y_sum / n
+    x_deviation_squared_sum = 0
+    y_deviation_squared_sum = 0
 
-    return -1
+    for numbers_index in range(1, len(numbers) + 1):
+        x = numbers_index
+        y = numbers[numbers_index - 1]
+
+        deviation_multiply_sum += (x - x_avg) * (y - y_avg)
+
+        x_deviation_squared_sum += (x - x_avg) ** 2
+        y_deviation_squared_sum += (y - y_avg) ** 2
+
+    pearson_correlation = deviation_multiply_sum / sqrt(x_deviation_squared_sum * y_deviation_squared_sum)
+    return pearson_correlation
 
 
 if __name__ == '__main__':
@@ -62,8 +71,8 @@ if __name__ == '__main__':
     if len(input_numbers) > 0:
         print(f"average of numbers: {get_avg(input_numbers)}")
         print(f"amount of positive numbers: {get_positive_amount(input_numbers)}")
-        print(f"numbers sorted: {get_sorted_numbers(input_numbers)}")
         show_graph(input_numbers)
         print(f"pearson correlation: {calc_pearson_correlation(input_numbers)}")
+        print(f"numbers sorted: {get_sorted_numbers(input_numbers)}")
     else:
         print("no numbers entered")
