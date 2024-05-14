@@ -6,8 +6,8 @@ namespace part4_2048
         public static void Main(string[] args)
         {
             Game x = new Game();
-            x.GameRun();
- 
+            x.GameRun();          
+
         }
     }
 }

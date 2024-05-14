@@ -9,46 +9,63 @@ namespace part4_2048
 {
     public class Game
     {
-        public Board board { get; }      
-        public Board.GameStatus gameStatus { get; }
-        public int Points { get;}  
+        public Board board { get; }
+        private GameStatus _gameStatus;
+        private int _points;
+        private int _highScore;
         public Game() 
         {
             board = new Board(4);
-            gameStatus = Board.GameStatus.Idle;
-            Points = 0; 
+            _gameStatus = GameStatus.Idle;
+            _points = 0;
+            _highScore = 0;
         }  
-         
         public void GameRun()
         {
             board.InitialBoard();
-            while (gameStatus == Board.GameStatus.Idle) 
+            while (_gameStatus == GameStatus.Idle) 
             {
                 ConsoleGame.ShowBoard(board.Data);
-                Move(ConsoleGame.GetDirectionInput());
-                ConsoleGame.ShowPoints(Points);
-                Board.GameStatus gameStatus = CheckGameStatus();
+                Move(ConsoleGame.GetDirectionInput());           
             }
-            ConsoleGame.GameOverOutput(gameStatus,Points);
+
+            if (_gameStatus == GameStatus.Idle && _points > _highScore)
+            {
+                _highScore = _points;
+            }
+
+            if(ConsoleGame.GameOverOutput(_gameStatus, _points, _highScore))
+            {
+                _gameStatus = GameStatus.Idle;
+                GameRun();
+            }
         }
-        public void Move(Board.Direction direction)
+        public void Move(Direction direction)
         {
+            _points += board.Move(direction);
+            ConsoleGame.ShowPoints(_points);
+            _gameStatus = CheckGameStatus();
 
+            if(_gameStatus == GameStatus.Idle)    
+                board.FillRandomSquare();
         }
 
-        public Board.GameStatus CheckGameStatus()
+        public GameStatus CheckGameStatus()
         {
             bool idle = false;
             for (int i = 0; i < board.DataIndexer.Length; i++)
             {
                 if (board.DataIndexer[i] == 2048)
-                    return Board.GameStatus.Win;
+                    return GameStatus.Win;
+
                 else if (board.DataIndexer[i] == 0)
                     idle = true;    
             }
+
             if (idle)
-                return Board.GameStatus.Idle;
-            return Board.GameStatus.Lose;
+                return GameStatus.Idle;
+            
+            return GameStatus.Lose;
 
         }
     }

@@ -9,7 +9,7 @@ namespace part4_2048
 {
     public static class ConsoleGame
     {
-        public static Board.Direction GetDirectionInput()
+        public static Direction GetDirectionInput()
         {
             PrintDirections();
             string direction = Console.ReadLine();
@@ -17,13 +17,13 @@ namespace part4_2048
             switch (direction) 
             {
                 case "w":
-                    return Board.Direction.Up;
+                    return Direction.Up;
                 case "s":
-                    return Board.Direction.Down;
+                    return Direction.Down;
                 case "a":
-                    return Board.Direction.Left;
+                    return Direction.Left;
                 case "d":
-                    return Board.Direction.Right;
+                    return Direction.Right;
                 default:
                     Console.WriteLine("Not a valid input, try again");
                     return GetDirectionInput();
@@ -36,8 +36,10 @@ namespace part4_2048
             Console.WriteLine("        w  ");
             Console.WriteLine("      a s d");
         }
-        public static void ShowPoints(int Points) { Console.WriteLine($"Points: {Points}"); }
-
+        public static void ShowPoints(int Points) 
+        {
+            Console.WriteLine($"Points: {Points}");
+        }
         public static void ShowBoard(int[,] data)
         {
             for (int i = 0; i < data.GetLength(0) * 2; i++)
@@ -75,18 +77,22 @@ namespace part4_2048
             return input;
         }
 
-        public static void GameOverOutput(Board.GameStatus gameStatus, int points)
+        public static bool GameOverOutput(GameStatus gameStatus, int points,
+            int highScore)
         {
             switch (gameStatus)
             {
                 case GameStatus.Win:
-                    Console.WriteLine($"good job! points:{points}");
+                    Console.WriteLine($"good job! points: {points}");
                     break;
                 default:
                     Console.WriteLine($"no more room! you lost!");
                     break;
             }
+            Console.WriteLine($"highest score: {highScore}");
 
+            Console.WriteLine($"would youi like to play again? [y/n] ");  
+            return Console.ReadLine().ToLower() == "y";
         }
     
     }

@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace part4_2048
 {
-    public static class Actions
+    public enum Direction
     {
-        
+        Up = 'w',
+        Down = 's',
+        Left = 'a',
+        Right = 'd'
     }
 }
