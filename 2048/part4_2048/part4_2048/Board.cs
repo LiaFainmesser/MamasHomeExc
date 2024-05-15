@@ -9,9 +9,9 @@ namespace part4_2048
 {
     public class Board
     {
-        public int[,] Data { get; }
-        public int[] DataIndexer { get; }
-        public int BoardSize { get; }
+        public int[,] Data { get; protected set; }
+        public int[] DataIndexer { get; protected set; }
+        public int BoardSize { get; protected set; }
         public Board(int boardSize)
         {
             Data = new int[boardSize, boardSize];
@@ -150,7 +150,7 @@ namespace part4_2048
         }
 
         
-        public void pushDown()
+        private void pushDown()
         {
             for (int i = 0; i < DataIndexer.Length - BoardSize; i++)
             {
@@ -174,7 +174,7 @@ namespace part4_2048
             }
             datatIndexerToData();
         }
-        public void pushLeft()
+        private void pushLeft()
         {
             for (int i = 0; i < DataIndexer.Length - 1; i++)
             {
@@ -189,7 +189,7 @@ namespace part4_2048
             }
             datatIndexerToData();
         }
-        public void pushRight()
+        private void pushRight()
         {
             for (int i = DataIndexer.Length - 1; i > 0; i--)
             {

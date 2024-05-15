@@ -10,17 +10,18 @@ namespace part4_2048
     public class Game
     {
         public Board board { get; }
-        private GameStatus _gameStatus;
-        private int _points;
-        private int _highScore;
-        public Game() 
+        public GameStatus _gameStatus {  get; protected set; }    
+        public int _points { get; protected set; }
+        public int _highScore { get; protected set; }
+    
+        public Game(int boardSize) 
         {
-            board = new Board(4);
+            board = new Board(boardSize);
             _gameStatus = GameStatus.Idle;
             _points = 0;
             _highScore = 0;
         }  
-        public void GameRun()
+        public void RunGame()
         {
             board.InitialBoard();
             while (_gameStatus == GameStatus.Idle) 
@@ -37,7 +38,7 @@ namespace part4_2048
             if(ConsoleGame.GameOverOutput(_gameStatus, _points, _highScore))
             {
                 _gameStatus = GameStatus.Idle;
-                GameRun();
+                RunGame();
             }
         }
         public void Move(Direction direction)
