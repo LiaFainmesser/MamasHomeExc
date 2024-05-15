@@ -8,9 +8,9 @@ namespace oop_part3
 {
     public class StringsOfNumbers
     {
-        protected string[] Tens;
-        protected string[] Teens;
-        protected string[] Digits;
+        public string[] Tens { get; }
+        public string[] Teens { get; }
+        public string[] Digits { get; }
 
         public StringsOfNumbers() 
         {

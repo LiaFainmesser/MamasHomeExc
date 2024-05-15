@@ -78,27 +78,21 @@ namespace oop_part3
             return Number; 
         }
 
-        public static int SumLetters(int number)
+        public static int SumLetters(long number)
         {
             int sum = 0;
-            for (int i = 0; i < number; i++)
+            for (long i = 0; i < number; i++)
             {
                 NumericalExpression numericalExpression = new NumericalExpression(i);
                 sum += numericalExpression.ToString().Trim().Length;
             }
             return sum;
         }
+        //העקרון בתכנות מונחה עצמים שבא לידי ביטוי הוא עקרון הרב צורתיות 
         public static int SumLetters(NumericalExpression inputNumericalExpression)
         {
             long number = inputNumericalExpression.GetValue();
-
-            int sum = 0;
-            for (int i = 0; i < number; i++)
-            {
-                NumericalExpression numericalExpression = new NumericalExpression(i);
-                sum += numericalExpression.ToString().Trim().Length;
-            }
-            return sum;
+            return SumLetters(number);        
         }
 
     }
