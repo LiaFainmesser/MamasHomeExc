@@ -1,5 +1,4 @@
-﻿using System;
-namespace part4_2048
+﻿namespace part4_2048
 {
     public class Program
     {

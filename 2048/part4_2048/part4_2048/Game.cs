@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static part4_2048.Board;
-
-namespace part4_2048
+﻿namespace part4_2048
 {
     public class Game
     {
